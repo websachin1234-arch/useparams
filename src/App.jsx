@@ -47,7 +47,8 @@ function Home() {
 
 function BlogPage() {
   const { slug } = useParams();
-  const blog = blogs.find((items) => items.slug === slug);
+ const blog = blogs.find(
+  (items) => items.title.toLowerCase().replaceAll(" ", "-") === slug);
 
   if (!blog) {
     return <p className="p-6">Blog not found.</p>;
